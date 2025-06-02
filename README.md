@@ -63,4 +63,40 @@ Ne fonctionne que sur le même sous-réseau.
 Le champ signal Wi-Fi n’est pas encore disponible.
 
 
+🧩 1. Ajout de ton dépôt dans HACS (pour toi ou pour d'autres)
+Tu peux proposer ton intégration comme dépôt personnalisé HACS, sans passer par l'organisation officielle. Voici comment :
 
+🔧 Étapes dans Home Assistant :
+Va dans HACS > Intégrations.
+
+Clique sur les ⋮ (3 points en haut à droite) > Dépôts personnalisés.
+
+Renseigne l'URL de ton dépôt GitHub :
+
+bash
+Copier
+Modifier
+https://github.com/SoFarSoGood86/ip_scanner
+Choisis le type : Intégration.
+
+Clique sur Ajouter.
+
+L’intégration apparaîtra alors dans HACS sous le nom IP Scanner, grâce à hacs.json.
+
+🌍 2. Exemple de carte Lovelace (interface Home Assistant)
+Tu peux créer une carte qui affiche tous les appareils détectés par l'intégration.
+
+🧱 Exemple de carte entities :
+yaml
+Copier
+Modifier
+type: entities
+title: Appareils détectés sur le réseau
+entities:
+  - entity: sensor.ip_scanner_00_11_22_33_44_55
+    name: PC Bureau
+  - entity: sensor.ip_scanner_aa_bb_cc_dd_ee_ff
+    name: Smartphone Alice
+  - entity: sensor.ip_scanner_11_22_33_44_55_66
+    name: Smart TV
+Tu peux automatiser l’affichage dynamique avec des filtres si tu utilises des noms dynamiques ou un groupement de sensors.
