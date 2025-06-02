@@ -1,0 +1,12 @@
+{
+    "domain": "ip_scanner",
+    "name": "IP Scanner",
+    "codeowners": ["@SoFarSoGood86"],
+    "config_flow": true,
+    "documentation": "https://github.com/SoFarSoGood86/ip_scanner",
+    "issue_tracker": "https://github.com/SoFarSoGood86/ip_scanner/issues",
+    "integration_type": "device",
+    "iot_class": "local_polling",
+    "requirements": ["python-nmap>=0.7.1"],
+    "version": "1.0.0"
+}
