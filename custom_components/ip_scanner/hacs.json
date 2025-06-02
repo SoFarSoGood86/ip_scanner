@@ -1,0 +1,10 @@
+{
+  "name": "IP Scanner",
+  "domain": "ip_scanner",
+  "documentation": "https://github.com/SoFarSoGood86/ip_scanner",
+  "issue_tracker": "https://github.com/SoFarSoGood86/ip_scanner/issues",
+  "codeowners": ["@SoFarSoGood86"],
+  "requirements": [],
+  "version": "1.0.0",
+  "iot_class": "local_polling"
+}

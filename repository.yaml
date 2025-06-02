@@ -1,0 +1,8 @@
+name: IP Scanner
+content_in_root: false
+domain: ip_scanner
+zip_release: false
+filename: ip_scanner.zip
+render_readme: true
+country: FR
+homeassistant: "2023.0.0"
