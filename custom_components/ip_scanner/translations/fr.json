@@ -1,0 +1,14 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configuration IP Scanner",
+        "description": "Aucune configuration n'est requise pour cette intégration."
+      }
+    },
+    "abort": {
+      "already_configured": "L'intégration est déjà configurée."
+    }
+  },
+  "title": "IP Scanner"
+}
