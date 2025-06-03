@@ -1,33 +1,97 @@
 # IP Scanner
 
-**IP Scanner** est une intégration Home Assistant permettant de détecter toutes les adresses IP, adresses MAC et puissances du signal Wi-Fi des appareils connectés sur votre réseau local.
+**IP Scanner** est une intégration personnalisée pour Home Assistant qui permet de détecter instantanément les appareils connectés à votre réseau Wi-Fi local (`wlan0`). Elle fournit pour chaque appareil :
 
-## Fonctionnalités
+- L'adresse IP
+- L'adresse MAC
+- La puissance du signal Wi-Fi (RSSI)
+- Une entité `device_tracker` pour chaque machine connectée
 
-- Scan périodique de votre réseau (`wlan0`)
-- Détection IP + MAC + RSSI (dBm)
-- Création d'entités `device_tracker` par appareil
-- Compatible HACS
+---
 
-## Installation
+## 🛠 Installation
 
-### Via HACS
+### Avec [HACS](https://hacs.xyz)
 
-1. Aller dans HACS > Intégrations > Personnalisé > Ajouter un dépôt :
-   - **URL** : `https://github.com/SoFarSoGood86/ip_scanner`
-   - **Type** : Intégration
-2. Rechercher `IP Scanner` et installer.
-3. Redémarrer Home Assistant.
+1. Ouvrez Home Assistant.
+2. Allez dans **HACS > Intégrations > 3 points > Dépôt personnalisé**.
+3. Ajoutez ce dépôt :
 
-## Configuration
+```
+https://github.com/SoFarSoGood86/ip_scanner
+```
 
-Aucune configuration manuelle nécessaire. L'intégration détecte automatiquement les appareils connectés.
+- **Type** : Intégration
+4. Recherchez `IP Scanner` dans HACS, installez l’intégration.
+5. Redémarrez Home Assistant.
 
-## Limitations
+---
 
-- Compatible uniquement avec `Linux` et l'interface `wlan0` (adaptable).
-- Nécessite que les commandes `iw` et `arp` soient disponibles sur le système.
+### Installation manuelle (sans HACS)
 
-## Auteur
+1. Téléchargez le dépôt `ip_scanner` ou copiez l'archive `ip_scanner.zip`.
+2. Décompressez et placez le dossier dans :
 
-GitHub : [SoFarSoGood86](https://github.com/SoFarSoGood86)
+```
+/config/custom_components/ip_scanner/
+```
+
+3. Redémarrez Home Assistant.
+
+---
+
+## ⚙️ Configuration
+
+L'intégration ne nécessite aucune configuration manuelle. Elle détecte automatiquement les appareils connectés à l’interface réseau **`wlan0`** (modifiable dans le code si besoin).
+
+---
+
+### Configuration YAML optionnelle (manuelle)
+
+Si vous ne passez pas par l’UI ou HACS, vous pouvez forcer le chargement via YAML :
+
+```yaml
+device_tracker:
+  - platform: ip_scanner
+```
+
+> **Note** : Si vous utilisez l’installation via HACS ou l’interface UI, cette configuration n’est pas nécessaire.
+
+---
+
+## 📡 Informations fournies
+
+Chaque appareil connecté est représenté par une entité `device_tracker.ip_scanner_<identifiant>`.
+
+Les attributs disponibles sont :
+
+- `ip_address` : adresse IP de l’appareil
+- `mac_address` : adresse MAC
+- `signal_strength` : puissance du signal Wi-Fi en dBm
+
+---
+
+## 🧪 Limitations
+
+- Ne fonctionne actuellement que sur les systèmes Linux.
+- Utilise les commandes `iw dev wlan0 station dump` et `arp -n` → Assurez-vous qu'elles sont disponibles sur votre système.
+- Interface réseau par défaut : `wlan0` (modifiez dans `scanner.py` si besoin).
+
+---
+
+## 🎨 Icône
+
+L'intégration fournit une icône personnalisée : `icon.png`
+
+---
+
+## 👤 Auteur
+
+- GitHub : [SoFarSoGood86](https://github.com/SoFarSoGood86)
+- Projet : [IP Scanner](https://github.com/SoFarSoGood86/ip_scanner)
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence MIT.
