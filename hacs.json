@@ -1,0 +1,8 @@
+{
+  "name": "IP Scanner",
+  "content_in_root": false,
+  "domains": ["device_tracker"],
+  "domain": "ip_scanner",
+  "file_type": "integration",
+  "render_readme": true
+}
