@@ -1,8 +1,9 @@
 {
   "name": "IP Scanner",
-  "content_in_root": false,
-  "domains": ["device_tracker"],
-  "domain": "ip_scanner",
-  "file_type": "integration",
-  "render_readme": true
+  "description": "Scan IP, MAC, and Wi-Fi signal strength of connected devices.",
+  "render_readme": true,
+  "domains": ["sensor"],
+  "country": "FR",
+  "filename": "custom_components/ip_scanner/manifest.json",
+  "zip_release": false
 }
